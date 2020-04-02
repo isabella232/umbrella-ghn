@@ -1,0 +1,275 @@
+/* @override 
+	http://ghn.staging.wpengine.com/wp-content/themes/ga-health-news-2015/style.css?ver=4.3.1
+	http://29psr521pjae1crn5q2h3bsx.wpengine.netdna-cdn.com/wp-content/themes/ga-health-news-2015/style.css?ver=4.3.1
+	http://29psr521pjae1crn5q2h3bsx.wpengine.netdna-cdn.com/wp-content/themes/ga-health-news-2015/style.css?ver=4.3.2
+	http://29psr521pjae1crn5q2h3bsx.wpengine.netdna-cdn.com/wp-content/themes/ga-health-news-2015/style.css?ver=4.4.2
+*/
+
+/*
+Theme Name: GA Health News 2015
+Theme URI: http://test-georgia-health-news.pantheon.io/
+Author: Proof Industries
+Author URI: http://proof.industries
+Description: Child theme for Goliath Magazine Theme, customized for Georgia Health News
+Version: 0.0.0
+Template: goliath
+*/
+
+/* Picobarn Edits */
+
+
+div.post-block-1 div.post-item:nth-child(1) {
+	display: none;
+}
+
+div.post-block-1 div.post-item:nth-child(2) {
+	border-top-style: none;
+	padding-top: 0;
+}
+
+p.wp-caption-text {
+	font-size: 1em !important;
+}
+
+div.post-block-1 div.slider .thumbs {
+	
+	display: none;
+}
+
+@media (max-width:768px) {
+.slider-tabs div.post-item img {
+	max-width: auto !important;
+	width: auto !important;
+}
+}
+
+@media (min-width:768px) {
+
+div.post-block-1 div.items {
+	clear: none;
+	width: 50%;
+	margin-right: 0;
+	float: right;
+}
+
+div.post-block-1 .post-item div.title
+ {
+	width: 50% !important;
+}
+
+div.post-block-1 .slider div.title
+ {
+	width: 100% !important;
+}
+
+div.post-block-1 .post-item {
+	width: 100%;
+	margin-right: 0;
+}
+
+div.post-block-1 div.slider {
+	margin-top: 1em;
+	height: 100px;
+}
+
+div.post-block-1 div.post-intro {
+	clear: left;
+}
+
+div.post-block-1 div.img {
+}
+
+}
+.sidebar-affix-wrap.affix {
+	position: relative !important;
+}
+
+.post-item-cycle-slide {
+}
+
+
+.iab-ad__wrapper {
+	display: none !important;
+}
+
+
+/* Custom layout for VC Mosaic component */
+
+.mosaic .big {
+    width: 647px;
+}
+
+.mosaic .big .overlay {
+    width: 647px;
+}
+
+.mosaic .small {
+    width: 323px;
+}
+
+.mosaic .small .overlay {
+    width: 323px;
+}
+
+.mosaic .btn-default {
+    background-color: #126cb2;
+    color: #fff;
+}
+
+
+/* Custom navigation styles*/
+
+.menu .nav > .active > a {
+    color: #fff;
+}
+
+
+/* Prefooter */
+
+#ghn2015-prefooter {
+    background: top right no-repeat #ca040d;
+    position: relative;
+    width: 100%;
+    color: #fff;
+    overflow: hidden;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+#ghn2015-prefooter .newsletter {
+    padding: 20px 20px 40px;
+}
+
+#ghn2015-prefooter .donations .btn-default {
+    background: #ca040d;
+    box-shadow: none;
+    color: #fff;
+}
+
+#ghn2015-prefooter .donations {
+    background-color: #126CB2;
+}
+
+#ghn2015-prefooter .newsletter h3 {
+    padding: 30px 0 0 0;
+}
+
+#ghn2015-prefooter p {
+    font-size: 16px;
+    line-height: 1.6em;
+    padding: 2em 0 1em;
+}
+
+#ghn2015-prefooter .mc4wp-form p {
+    padding: 0;
+}
+
+#ghn2015-prefooter input[type="email"] {
+    background-color: #ca040d;
+    color: #fff;
+    width: 70%;
+    border: 1px solid #fff;
+    line-height: 14px;
+    font-size: 14px;
+    padding: 10px;
+    float:left;
+}
+
+#ghn2015-prefooter input[type="submit"] {
+    color: #fff;
+    background: #214d83;
+    height: auto;
+    line-height: 38px;
+    font-size: 16px;
+    font-weight: 900;
+    box-shadow: none;
+    margin-bottom: 1px;
+    font-family: Raleway, Arial, sans-serif;
+    display: block;
+    float:right;
+    width: 30%;
+}
+
+#ghn2015-prefooter .donations .btn-default:hover,
+#ghn2015-prefooter input[type="submit"]:hover {
+    background: #cfcfcf;
+    box-shadow: none;
+    color: #333;
+}
+
+@media (min-width:992px) {
+    #ghn2015-prefooter {
+        max-width: 970px;
+        height: 360px;
+        background-image: url(theme/assets/images/bg_prefooter.png);
+    }
+    #ghn2015-prefooter .newsletter {
+        padding: 20px 90px 40px 20px;
+    }
+    #ghn2015-prefooter .donations {
+        padding: 20px 20px 40px 40px;
+    }
+    #ghn2015-prefooter .donations p.lead {
+        text-align: right;
+    }
+    #ghn2015-prefooter .donations {
+        background-color: transparent;
+    }
+}
+
+/* Flexible ad banner height - GHN-27 */
+.banner-300x250 {
+    height: auto;
+}
+
+/*Pulse section layout improvements GHN-33 */
+
+.post-intro p{
+    margin-bottom: 1.15em;
+}
+
+.post-intro a{
+    color: #ca040d;
+    font-weight: bold;
+}
+
+.post-intro a:hover{
+    color: rgba(251, 75, 84, 1);
+}
+
+/* Use anchors as buttons */
+
+a.btn-default{
+    line-height:50px;
+}
+
+/* GHN On Air adjustments */
+.sidebar-item a.logo-on-air{
+    max-width:70%;
+}
+
+.sidebar-item a.logo-on-air img{
+    max-width:100%;
+}
+
+.widget-content h2 a.wpp-post-title{
+    font-size: 14px;
+    line-height: 18px;
+}
+
+ul.wpp-list li{
+    margin-bottom: 20px;
+    border-bottom: 1px solid #cfcfcf;
+    padding-bottom: 20px;
+}
+
+span.wpp-meta.post-stats{
+    margin-left:75px;
+}
+
+/* Social Icons */
+.trending .social {
+	top: 8px;
+	right: 0;
+	font-size: 24px;
+}
