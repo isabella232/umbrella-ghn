@@ -1,0 +1,1 @@
+<?php $plsh_bundled_versions = array("js_composer" => "5.2.1","revslider" => "5.4.5.2",); ?>
