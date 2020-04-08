@@ -204,16 +204,24 @@ body {
 	z-index: 100000;
 }
 
-.navbar-wrapper-responsive .menu .nav .search:after {
+.navbar-wrapper-responsive .menu .nav .search i.fa-search::before {
 	font-family: FontAwesome;
 	content: "\f002";
-	color: #ff5732;
+	color: inherit;
 	font-size: 15px;
+}
+.navbar-wrapper-responsive .menu .nav .search .submit-button {
 	position: absolute;
 	display: block;
-	top: 77px;
-	right: 32px;
+	top: 70px;
+	right: 20px;
 	z-index: 100000;
+  border-radius: 0;
+  width: 34px;
+  height: 34px;
+  background-color: white;
+  border: 1px solid black;
+  color: #ff5732;
 }
 
 /* Revslider Slider */

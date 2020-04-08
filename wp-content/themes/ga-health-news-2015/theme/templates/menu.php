@@ -57,6 +57,7 @@
                     
                     <form method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
                         <input type="text" name="s" class="form-control" placeholder="<?php _e( 'search here', 'goliath' ); ?>" />
+						<button type="submit" title="<?php esc_attr_e( "Submit search", 'goliath' ) ?>" class="submit-button"><i class="fa fa-search"></i></button>
                     </form>
                     
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search"></i></a>
