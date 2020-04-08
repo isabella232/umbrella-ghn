@@ -1885,6 +1885,7 @@ textarea.form-control {
 
 .homepage-content {
 	padding: 0;
+  z-index: 100; /* https://github.com/INN/umbrella-ghn/issues/7#issuecomment-610037492 */
 }
 
 .main-content-column-1 {
