@@ -414,30 +414,50 @@ var theme = {
             jQuery('.trending .items').css('marginLeft', title_width+19);
         });
     },
-    initScrollTop: function() {
-        //show the back to top button
-        var offset = 220;
-        var duration = 500;
-        jQuery(window).scroll(function() {
-			
-			if(jQuery(window).outerWidth()+15 >= 970) { 
-								
-				if (jQuery(this).scrollTop() > offset) {
-					jQuery('.back-to-top').fadeIn(duration);
-				} else {
-					jQuery('.back-to-top').fadeOut(duration);
-				}
+
+	$backToTop: jQuery('.back-to-top'),
+
+	/**
+	 * Show or hide the "back to top" button based on the scroll distance from top of the page
+	 */
+	showHideBackToTop: function() {
+		//show the back to top button
+		var offset = 220;
+		var duration = 500;
+		if (jQuery(this).scrollTop() > offset) {
+			if ( theme.$backToTop.is(':hidden') ) {
+				theme.$backToTop.fadeIn(duration);
 			}
-            
-        });
-        
-        //to the scrolling
-        jQuery('.back-to-top').click(function(event) {
-            event.preventDefault();
-            jQuery('html, body').animate({scrollTop: 0}, duration);
-            return false;
-        });
-    },
+		} else {
+			if ( theme.$backToTop.is(':visible') ) {
+				theme.$backToTop.fadeOut(duration);
+			}
+		}
+	},
+
+	/**
+	 * Register the scroll triggers for the back-to-top button
+	 */
+    initScrollTop: function() {
+		/*
+		 * Notes of the evening of 2020-04-14:
+		 * ideas:
+		 * - set a variable for jquery('.back-to-top') so we don't have to find it every time
+		 * - inside the ifs, check if it's visible/not before fadein/out
+		 * - apply a debounce
+		 */
+		var debounced_showHideBackToTop = theme.debounce( theme.showHideBackToTop, 250, true );
+		jQuery(window).scroll(debounced_showHideBackToTop);
+
+		// animate the scrolling
+		jQuery('.back-to-top').click(function(event) {
+			event.preventDefault();
+			jQuery('html, body').animate({scrollTop: 0}, 500);
+			theme.$backToTop.fadeout(500);
+			return false;
+		});
+	},
+
     loadOverlay: function(obj){
         if(obj.parents('.navbar').length > 0) { return false; }
         if(jQuery(window).outerWidth()+15 <= 970) { return false; }
@@ -916,7 +936,6 @@ var theme = {
         }, 300);
     },
     initPostImageSharrre: function() {
-		
         jQuery('.shareme').sharrre({
             share: {
                 twitter: true,
@@ -948,7 +967,99 @@ var theme = {
                 });
             }
         });
-    }
+    },
+	
+	/**
+	 * debounce from underscore.js
+	 *
+	 * Returns a function, that, as long as it continues to be invoked, will not
+	 * be triggered. The function will be called after it stops being called for
+	 * N milliseconds. If `immediate` is passed, trigger the function on the
+	 * leading edge, instead of the trailing.
+	 *
+	 * @link https://underscorejs.org/#debounce
+	 * @link https://github.com/jashkenas/underscore/blob/master/LICENSE
+	 * @link https://github.com/jashkenas/underscore/blob/2a932470303157072015d5ab7f26d40b9deb4634/modules/index.js#L880-L911
+	 */
+	debounce: function( func, wait, immediate) {
+		var timeout, result;
+
+		var later = function(context, args) {
+			timeout = null;
+			if (args) result = func.apply(context, args);
+		};
+
+		var debounced = theme.restArguments(function(args) {
+			if (timeout) clearTimeout(timeout);
+			if (immediate) {
+				var callNow = !timeout;
+				timeout = setTimeout(later, wait);
+				if (callNow) result = func.apply(this, args);
+			} else {
+				timeout = theme.delay(later, wait, this, args);
+			}
+
+			return result;
+		});
+
+		debounced.cancel = function() {
+			clearTimeout(timeout);
+			timeout = null;
+		};
+
+		return debounced;
+	},
+
+	/**
+	 * delay from underscore.js
+	 *
+	 * Delays a function for the given number of milliseconds, and then calls
+	 * it with the arguments supplied.
+	 * @link https://github.com/jashkenas/underscore/blob/2a932470303157072015d5ab7f26d40b9deb4634/modules/index.js#L822-L828
+	 * @link https://github.com/jashkenas/underscore/blob/master/LICENSE
+	 */
+	delay: function( func, wait, args) {
+		return theme.restArguments(function(func, wait, args) {
+			return setTimeout(function() {
+				return func.apply(null, args);
+			}, wait);
+		});
+	},
+
+	/**
+	 * restArguments from underscore.js
+	 *
+	 * Some functions take a variable number of arguments, or a few expected
+	 * arguments at the beginning and then a variable number of values to operate
+	 * on. This helper accumulates all remaining arguments past the function’s
+	 * argument length (or an explicit `startIndex`), into an array that becomes
+	 * the last argument. Similar to ES6’s "rest parameter".
+	 *
+	 * @link https://github.com/jashkenas/underscore/blob/master/LICENSE
+	 * @link https://github.com/jashkenas/underscore/blob/2a932470303157072015d5ab7f26d40b9deb4634/modules/index.js#L98-L124
+	 */
+	restArguments: function(func, startIndex) {
+		startIndex = startIndex == null ? func.length - 1 : +startIndex;
+		return function() {
+			var length = Math.max(arguments.length - startIndex, 0),
+					rest = Array(length),
+					index = 0;
+			for (; index < length; index++) {
+				rest[index] = arguments[index + startIndex];
+			}
+			switch (startIndex) {
+				case 0: return func.call(this, rest);
+				case 1: return func.call(this, arguments[0], rest);
+				case 2: return func.call(this, arguments[0], arguments[1], rest);
+			}
+			var args = Array(startIndex + 1);
+			for (index = 0; index < startIndex; index++) {
+				args[index] = arguments[index];
+			}
+			args[startIndex] = rest;
+			return func.apply(this, args);
+		};
+	}
 };
 
 function chunk (arr, len) {
