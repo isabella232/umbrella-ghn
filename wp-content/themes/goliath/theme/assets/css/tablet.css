@@ -103,6 +103,9 @@
 	display: block;
 	float: right;
 }
+.navbar-wrapper-responsive .menu .nav .search .submit-button {
+  display: none;
+}
 
 .menu ul.nav li.new-stories {
 	display: block;
