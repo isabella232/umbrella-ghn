@@ -45,6 +45,7 @@ div.post-block-1 div.slider .thumbs {
 
 @media (max-width:768px) {
   .slider-tabs div.post-item img {
+    height: auto;
     max-width: 100%;
     width: auto !important;
   }
