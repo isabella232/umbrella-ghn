@@ -173,8 +173,15 @@ if(!function_exists('plsh_add_scripts'))
         wp_enqueue_script( 'plsh-hoverintent', PLSH_JS_URL . 'vendor/jquery.hoverintent.min.js', array( 'jquery' ), false, true);
         wp_enqueue_script( 'plsh-sharrre', PLSH_JS_URL . 'vendor/jquery.sharrre.min.js', array( 'jquery' ), false, true);
         wp_enqueue_script( 'plsh-particles', PLSH_JS_URL . 'vendor/jquery.particleground.js', array( 'jquery' ), false, true);
-        wp_enqueue_script( 'plsh-theme', PLSH_JS_URL . 'theme.js', array( 'jquery', 'plsh-sharrre' ), false, true);
-        
+
+		wp_enqueue_script(
+			'plsh-theme',
+			PLSH_JS_URL . 'theme.js',
+			array( 'jquery', 'plsh-sharrre' ),
+			filemtime( get_template_directory() . '/theme/assets/js/theme.js' ),
+			true
+		);
+
         $ajax_object = array();
         $ajax_object['ajaxurl'] = admin_url( 'admin-ajax.php' );
         $ajax_object['readmore'] = __('Read more', 'goliath');
