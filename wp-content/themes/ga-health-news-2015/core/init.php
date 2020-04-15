@@ -4,27 +4,56 @@
 /* Define Constants */
 /*-----------------------------------------------------------------------------------*/
 
-	define('PLSH_PATH', get_template_directory() . '/');
-    define('PLSH_URL', get_template_directory_uri() . '/');
-    define('PLSH_CORE_PATH', get_template_directory() . '/core/');
-	define('PLSH_THEME_PATH', get_template_directory() . '/theme/');
-	define('PLSH_THEME_URL', get_template_directory_uri() . '/theme/');
-	define('PLSH_ADMIN_PANEL_PATH', get_template_directory() . '/core/panel/');
-    define('PLSH_ADMIN_PANEL_TEMPLATE_PATH', get_template_directory() . '/core/panel/templates/');
-    define('PLSH_ADMIN_ASSET_URL', get_template_directory_uri() . '/core/panel/assets/');
-	define('PLSH_LIB_PATH', get_template_directory() . '/core/lib/');
-	define('PLSH_IMG_URL', PLSH_THEME_URL . 'assets/images/');
-	define('PLSH_JS_URL', PLSH_THEME_URL . 'assets/js/');
-	define('PLSH_CSS_URL', PLSH_THEME_URL . 'assets/css/');
-    
+	// define('PLSH_PATH', get_template_directory() . '/');
+    // define('PLSH_URL', get_template_directory_uri() . '/');
+    if ( ! defined( 'PLSH_CORE_PATH' ) ) {
+		define('PLSH_CORE_PATH', get_template_directory() . '/core/');
+	}
+    if ( ! defined( 'PLSH_THEME_PATH' ) ) {
+		define('PLSH_THEME_PATH', get_template_directory() . '/theme/');
+	}
+	if ( ! defined( 'PLSH_THEME_URL' ) ) {
+		define('PLSH_THEME_URL', get_template_directory_uri() . '/theme/');
+	}
+	if ( ! defined( 'PLSH_ADMIN_PANEL_PATH' ) ) {
+		define('PLSH_ADMIN_PANEL_PATH', get_template_directory() . '/core/panel/');
+	}
+	if ( ! defined( 'PLSH_ADMIN_PANEL_TEMPLATE_PATH' ) ) {
+		define('PLSH_ADMIN_PANEL_TEMPLATE_PATH', get_template_directory() . '/core/panel/templates/');
+	}
+	if ( ! defined( 'PLSH_ADMIN_ASSET_URL' ) ) {
+		define('PLSH_ADMIN_ASSET_URL', get_template_directory_uri() . '/core/panel/assets/');
+	}
+
+	if ( ! defined( 'PLSH_LIB_PATH' ) ) {
+		define('PLSH_LIB_PATH', get_template_directory() . '/core/lib/');
+	}
+	if ( ! defined( 'PLSH_IMG_URL' ) ) {
+		define('PLSH_IMG_URL', PLSH_THEME_URL . 'assets/images/');
+	}
+	if ( ! defined( 'PLSH_JS_URL' ) ) {
+		define('PLSH_JS_URL', PLSH_THEME_URL . 'assets/js/');
+	}
+	if ( ! defined( 'PLSH_CSS_URL' ) ) {
+		define('PLSH_CSS_URL', PLSH_THEME_URL . 'assets/css/');
+	}
+
     $upload_dir = wp_upload_dir();
-    define('PLSH_UPLOAD_URL',  $upload_dir['baseurl'] . '/goliath/');
-    define('PLSH_UPLOAD_PATH',  $upload_dir['basedir'] . '/goliath/');
-    
-	define('PLSH_TEMPLATE_PATH', PLSH_THEME_PATH . 'templates/');
-    
-    define('PLSH_PLUGIN_PATH', PLSH_THEME_PATH . 'plugins/');
-    define('PLSH_WOOCOMMERCE_PATH', get_template_directory() . '/woocommerce/');
+	if ( ! defined( 'PLSH_UPLOAD_URL' ) ) {
+		define('PLSH_UPLOAD_URL',  $upload_dir['baseurl'] . '/goliath/');
+	}
+	if ( ! defined( 'PLSH_UPLOAD_PATH' ) ) {
+		define('PLSH_UPLOAD_PATH',  $upload_dir['basedir'] . '/goliath/');
+	}
+	if ( ! defined( 'PLSH_TEMPLATE_PATH' ) ) {
+		define('PLSH_TEMPLATE_PATH', PLSH_THEME_PATH . 'templates/');
+	}
+	if ( ! defined( 'PLSH_PLUGIN_PATH' ) ) {
+		define('PLSH_PLUGIN_PATH', PLSH_THEME_PATH . 'plugins/');
+	}
+	if ( ! defined( 'PLSH_WOOCOMMERCE_PATH' ) ) {
+		define('PLSH_WOOCOMMERCE_PATH', get_template_directory() . '/woocommerce/');
+	}
     define('PLSH_IS_CHILD', is_child_theme());
     
     if(PLSH_IS_CHILD)
@@ -60,10 +89,12 @@
 	$_SETTINGS = new Plsh_Settings();
 
 /*-----------------------------------------------------------------------------------*/
-/* Constants and Globals */
+/* A few more constants
 /*-----------------------------------------------------------------------------------*/
-	
+
+if ( ! defined( 'PLSH_THEME_DOMAIN' ) ) {
 	define('PLSH_THEME_DOMAIN', plsh_gs('theme_slug'));
+}
 
 /*-----------------------------------------------------------------------------------*/
 /* Add actions */

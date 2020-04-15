@@ -1,10 +1,3 @@
-/* @override 
-	http://ghn.staging.wpengine.com/wp-content/themes/ga-health-news-2015/style.css?ver=4.3.1
-	http://29psr521pjae1crn5q2h3bsx.wpengine.netdna-cdn.com/wp-content/themes/ga-health-news-2015/style.css?ver=4.3.1
-	http://29psr521pjae1crn5q2h3bsx.wpengine.netdna-cdn.com/wp-content/themes/ga-health-news-2015/style.css?ver=4.3.2
-	http://29psr521pjae1crn5q2h3bsx.wpengine.netdna-cdn.com/wp-content/themes/ga-health-news-2015/style.css?ver=4.4.2
-*/
-
 /*
 Theme Name: GA Health News 2015
 Theme URI: http://test-georgia-health-news.pantheon.io/
@@ -15,8 +8,22 @@ Version: 0.0.0
 Template: goliath
 */
 
-/* Picobarn Edits */
+/* @override
+	http://ghn.staging.wpengine.com/wp-content/themes/ga-health-news-2015/style.css?ver=4.3.1
+	http://29psr521pjae1crn5q2h3bsx.wpengine.netdna-cdn.com/wp-content/themes/ga-health-news-2015/style.css?ver=4.3.1
+	http://29psr521pjae1crn5q2h3bsx.wpengine.netdna-cdn.com/wp-content/themes/ga-health-news-2015/style.css?ver=4.3.2
+	http://29psr521pjae1crn5q2h3bsx.wpengine.netdna-cdn.com/wp-content/themes/ga-health-news-2015/style.css?ver=4.4.2
+*/
 
+
+/* Header */
+@media ( max-width: 970px ) and ( min-width: 768px ) {
+  .header .logo-image img {
+    max-width: 100%;
+  }
+}
+
+/* Picobarn edits */
 
 div.post-block-1 div.post-item:nth-child(1) {
 	display: none;
@@ -37,56 +44,47 @@ div.post-block-1 div.slider .thumbs {
 }
 
 @media (max-width:768px) {
-.slider-tabs div.post-item img {
-	max-width: auto !important;
-	width: auto !important;
-}
+  .slider-tabs div.post-item img {
+    max-width: 100%;
+    width: auto !important;
+  }
 }
 
 @media (min-width:768px) {
+  div.post-block-1 div.items {
+    clear: none;
+    width: 50%;
+    margin-right: 0;
+    float: right;
+  }
 
-div.post-block-1 div.items {
-	clear: none;
-	width: 50%;
-	margin-right: 0;
-	float: right;
-}
+  div.post-block-1 .post-item div.title
+   {
+    width: 50% !important;
+  }
 
-div.post-block-1 .post-item div.title
- {
-	width: 50% !important;
-}
+  div.post-block-1 .slider div.title
+   {
+    width: 100% !important;
+  }
 
-div.post-block-1 .slider div.title
- {
-	width: 100% !important;
-}
+  div.post-block-1 .post-item {
+    width: 100%;
+    margin-right: 0;
+  }
 
-div.post-block-1 .post-item {
-	width: 100%;
-	margin-right: 0;
-}
+  div.post-block-1 div.slider {
+    margin-top: 1em;
+    height: 100px;
+  }
 
-div.post-block-1 div.slider {
-	margin-top: 1em;
-	height: 100px;
-}
-
-div.post-block-1 div.post-intro {
-	clear: left;
-}
-
-div.post-block-1 div.img {
-}
-
+  div.post-block-1 div.post-intro {
+    clear: left;
+  }
 }
 .sidebar-affix-wrap.affix {
 	position: relative !important;
 }
-
-.post-item-cycle-slide {
-}
-
 
 .iab-ad__wrapper {
 	display: none !important;
