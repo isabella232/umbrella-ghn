@@ -272,3 +272,26 @@ span.wpp-meta.post-stats{
 	right: 0;
 	font-size: 24px;
 }
+.trending .social a {
+  vertical-align: middle;
+}
+.trending .social .header-text-button {
+  font-size: 18px;
+  line-height: 21px;
+  height: 21px;
+  padding-left: 4px;
+  padding-right: 4px;
+  background-color: #999;
+  color: white;
+  border-radius: 3px;
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+.trending .social .header-text-button:hover,
+.trending .social .header-text-button:active,
+.trending .social .header-text-button:focus
+{
+  background-color: #252525;
+  color: white;
+}
