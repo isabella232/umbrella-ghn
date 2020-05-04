@@ -62,7 +62,7 @@
                     if(plsh_gs('show_header_social') == 'on')
                     {
 						// https://github.com/INN/umbrella-ghn/issues/6
-						// @since 20
+						// @since 2020-05-04
 						echo '<a href="https://www.georgiahealthnews.com/donate/" target="_blank" class="header-text-button" style="background-color: #126cb2;" >Donate</a> ';
 
 						echo '<a href="https://investigativenewsnetwork.us1.list-manage.com/subscribe?u=81670c9d1b5fbeba1c29f2865&id=1476113985" target="_blank" class="header-text-button" style="background-color: #ca040d;">Subscribe</a> ';
