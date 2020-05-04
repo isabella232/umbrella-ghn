@@ -295,3 +295,22 @@ span.wpp-meta.post-stats{
   background-color: #252525;
   color: white;
 }
+
+/* Updates to trending header area */
+@media (max-width: 970px) {
+    .container.trending {
+        box-shadow: #e4e4e4 0 -3px 0 inset;
+        height: max-content;
+    }
+    .container.trending .title-default {
+        height: inherit;
+        box-shadow: none!important;
+    }
+    .container.trending .items-wrapper {
+        height: max-content;
+    }
+    .container.trending #newsticker {
+        width: calc(100% + -169px + -250px);
+        white-space:inherit;
+    }
+}
