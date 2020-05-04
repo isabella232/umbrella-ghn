@@ -272,3 +272,45 @@ span.wpp-meta.post-stats{
 	right: 0;
 	font-size: 24px;
 }
+.trending .social a {
+  vertical-align: middle;
+}
+.trending .social .header-text-button {
+  font-size: 12px;
+  line-height: 21px;
+  height: 21px;
+  padding-left: 4px;
+  padding-right: 4px;
+  background-color: #999;
+  color: white;
+  border-radius: 3px;
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+.trending .social .header-text-button:hover,
+.trending .social .header-text-button:active,
+.trending .social .header-text-button:focus
+{
+  background-color: #252525;
+  color: white;
+}
+
+/* Updates to trending header area */
+@media (max-width: 970px) {
+    .container.trending {
+        box-shadow: #e4e4e4 0 -3px 0 inset;
+        height: max-content;
+    }
+    .container.trending .title-default {
+        height: inherit;
+        box-shadow: none!important;
+    }
+    .container.trending .items-wrapper {
+        height: max-content;
+    }
+    .container.trending #newsticker {
+        width: calc(100% + -169px + -250px);
+        white-space:inherit;
+    }
+}
