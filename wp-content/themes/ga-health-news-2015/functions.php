@@ -215,3 +215,27 @@ function date_weights( $match ) {
 	}
 	return $match;
 }
+
+/**
+ * Returns a Twitter username (without the @ symbol)
+ *
+ * @param  string	$url a twitter url
+ * @return string	the twitter username extracted from the input string
+ * @since  Largo 0.3
+ * @link   https://github.com/INN/largo/blob/v0.7-prerelease1/inc/helpers.php#L83-L104
+ */
+function largo_twitter_url_to_username( $url ) {
+	$urlParts = explode( '/', $url );
+	if ( end( $urlParts ) == '' ) {
+		// URL has a trailing slash
+		$urlParts = array_slice( $urlParts, 0 , -1 );
+	}
+	$username = preg_replace( '/@/', '', end( $urlParts ) );
+	// strip the ?&# URL parameters if they're present
+	// this will let through all other characters
+	preg_match( '/[^\?&#]+/', $username, $matches );
+	if ( isset( $matches[0] ) ){
+		$username = $matches[0];
+	}
+	return $username;
+}
