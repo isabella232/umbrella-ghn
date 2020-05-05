@@ -266,7 +266,7 @@ span.wpp-meta.post-stats{
     margin-left:75px;
 }
 
-/* Social Icons */
+/* Social Icons in the header*/
 .trending .social {
 	top: 8px;
 	right: 0;
@@ -313,4 +313,27 @@ span.wpp-meta.post-stats{
         width: calc(100% + -169px + -250px);
         white-space:inherit;
     }
+}
+
+/* social icons at the top of articles */
+ul.social-share-buttons {
+  padding: 0.5em 0;
+}
+ul.social-share-buttons li {
+  display: inline-block;
+  padding: 0 4px;
+  font-size: 12px;
+  line-height: 21px;
+  background-color: #126cb2;
+  border-radius: 3px;
+  margin-right: 3px;
+}
+ul.social-share-buttons li a {
+  color: white;
+}
+ul.social-share-buttons li:hover {
+  background-color: #ca040d;
+}
+ul.social-share-buttons li:hover a {
+  color: white;
 }
