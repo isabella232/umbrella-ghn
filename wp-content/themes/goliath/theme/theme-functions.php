@@ -176,9 +176,9 @@ if(!function_exists('plsh_add_scripts'))
 
 		wp_enqueue_script(
 			'plsh-theme',
-			PLSH_JS_URL . 'theme.js',
+			get_stylesheet_directory_uri() . '/theme/assets/js/theme.js',
 			array( 'jquery', 'plsh-sharrre' ),
-			filemtime( get_template_directory() . '/theme/assets/js/theme.js' ),
+			filemtime( get_stylesheet_directory() . '/theme/assets/js/theme.js' ),
 			true
 		);
 

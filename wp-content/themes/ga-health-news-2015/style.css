@@ -39,7 +39,6 @@ p.wp-caption-text {
 }
 
 div.post-block-1 div.slider .thumbs {
-	
 	display: none;
 }
 
@@ -318,6 +317,7 @@ span.wpp-meta.post-stats{
 /* social icons at the top of articles */
 ul.social-share-buttons {
   padding: 0.5em 0;
+  margin: 0;
 }
 ul.social-share-buttons li {
   display: inline-block;
