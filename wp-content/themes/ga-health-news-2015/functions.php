@@ -251,6 +251,7 @@ add_action( 'wp_enqueue_scripts', 'ga_dequeue_sharrre', 20 );
 function ga_dequeue_sharrre() {
 	// the plsh theme js has a dependency upon sharre; let's remove that as well
 	wp_dequeue_script( 'plsh-theme' );
+	wp_deregister_script( 'plsh-theme' );
 	wp_enqueue_script(
 		'plsh-theme',
 		PLSH_JS_URL . 'theme.js',
