@@ -32,9 +32,9 @@ global $post;
 
 	/*
 	 * twitter
+	 *
+	 * q: does this site use Co-authors Plus? not that we can tell
 	 */
-	// q: does this site use CAP? no
-	// [ ] remove of_get_option
 	$twitter_share = '<li class="btn-twitter"><a target="_blank" href="https://twitter.com/intent/tweet?text=%1$s&url=%2$s%3$s"><i class="fa fa-twitter-square"></i> <span class="hidden-phone">%4$s</span></a></li>';
 
 	// By default, don't set a via.
@@ -86,7 +86,7 @@ global $post;
 	 */
 	$output[] = sprintf(
 		'<li data-service="email" class="email share-button"><a href="mailto:?subject=%2$s&body=%3$s%0D%0A%4$s" target="_blank"><i class="fa fa-envelope"></i> <span class="hidden-phone">%1$s</span></a></li>',
-		esc_attr( __( 'Email', 'largo' ) ),
+		esc_attr( __( 'Email', 'goliath' ) ),
 		rawurlencode( html_entity_decode( get_the_title(), ENT_QUOTES, get_option( 'blog_charset' ) ) ), // subject
 		rawurlencode( html_entity_decode( strip_tags( get_the_excerpt() ), ENT_QUOTES, get_option( 'blog_charset' ) ) ), // description
 		rawurlencode( html_entity_decode( get_the_permalink() ) ) // url
