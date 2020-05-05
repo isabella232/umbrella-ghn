@@ -254,13 +254,31 @@ function ga_dequeue_sharrre() {
 	wp_deregister_script( 'plsh-theme' );
 	wp_enqueue_script(
 		'plsh-theme',
-		PLSH_JS_URL . 'theme.js',
+		get_stylesheet_directory_uri() . '/theme/assets/js/theme.js',
 		array( 'jquery' ),
-		filemtime( get_template_directory() . '/theme/assets/js/theme.js' ),
+		filemtime( get_stylesheet_directory() . '/theme/assets/js/theme.js' ),
 		true
 	);
 
 	// now dequeue the rest
 	wp_dequeue_style( 'plsh-sharrre' );
 	wp_dequeue_script( 'plsh-sharrre' );
+
+	// and relocalize it
+
+	$ajax_object = array();
+	$ajax_object['ajaxurl'] = admin_url( 'admin-ajax.php' );
+	$ajax_object['readmore'] = __('Read more', 'goliath');
+	$ajax_object['article'] = __('Article', 'goliath');
+	$ajax_object['show_post_quick_view'] = plsh_gs('show_post_quick_view');
+	$ajax_object['show_mosaic_overlay'] = plsh_gs('show_mosaic_overlay');
+	$ajax_object['enable_sidebar_affix'] = plsh_gs('enable_sidebar_affix');
+
+	if ( function_exists('icl_get_languages' ) ) {
+		$ajax_object['lang'] = ICL_LANGUAGE_CODE;
+	}
+
+	$ajax_object['particle_color'] = get_theme_mod('particle_color', plsh_gs('particle_color'));
+
+	wp_localize_script( 'plsh-theme', 'ajax_object', $ajax_object );
 }
