@@ -239,3 +239,16 @@ function largo_twitter_url_to_username( $url ) {
 	}
 	return $username;
 }
+
+/**
+ * Dequeue the 'sharrre' script and its stylesheet
+ *
+ * The script is broken; without the script there's no need for the styles.
+ *
+ * @link https://github.com/INN/umbrella-ghn/issues/9
+ */
+add_action( 'wp_enqueue_scripts', 'ga_dequeue_sharrre', 20 );
+function ga_dequeue_sharrre() {
+	wp_dequeue_style( 'plsh-sharrre' );
+	wp_dequeue_script( 'plsh-sharrre' );
+}
