@@ -27,7 +27,7 @@ global $post;
 	$output['facebook'] = sprintf(
 		$fb_share,
 		rawurlencode( get_permalink() ),
-		_x( 'Like', 'facebook verb', 'goliath' )
+		_x( 'Share', 'facebook verb', 'goliath' )
 	);
 
 	/*
@@ -78,7 +78,7 @@ global $post;
 		rawurlencode( html_entity_decode( get_the_title(), ENT_QUOTES, get_option('blog_charset') ) ),
 		rawurlencode( get_permalink() ),
 		$via,
-		__( 'Tweet', 'largo' )
+		__( 'Tweet', 'goliath' )
 	);
 
 	/*
