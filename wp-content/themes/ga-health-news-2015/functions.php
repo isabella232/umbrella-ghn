@@ -215,3 +215,70 @@ function date_weights( $match ) {
 	}
 	return $match;
 }
+
+/**
+ * Returns a Twitter username (without the @ symbol)
+ *
+ * @param  string	$url a twitter url
+ * @return string	the twitter username extracted from the input string
+ * @since  Largo 0.3
+ * @link   https://github.com/INN/largo/blob/v0.7-prerelease1/inc/helpers.php#L83-L104
+ */
+function largo_twitter_url_to_username( $url ) {
+	$urlParts = explode( '/', $url );
+	if ( end( $urlParts ) == '' ) {
+		// URL has a trailing slash
+		$urlParts = array_slice( $urlParts, 0 , -1 );
+	}
+	$username = preg_replace( '/@/', '', end( $urlParts ) );
+	// strip the ?&# URL parameters if they're present
+	// this will let through all other characters
+	preg_match( '/[^\?&#]+/', $username, $matches );
+	if ( isset( $matches[0] ) ){
+		$username = $matches[0];
+	}
+	return $username;
+}
+
+/**
+ * Dequeue the 'sharrre' script and its stylesheet
+ *
+ * The script is broken; without the script there's no need for the styles.
+ *
+ * @link https://github.com/INN/umbrella-ghn/issues/9
+ */
+add_action( 'wp_enqueue_scripts', 'ga_dequeue_sharrre', 20 );
+function ga_dequeue_sharrre() {
+	// the plsh theme js has a dependency upon sharre; let's remove that as well
+	wp_dequeue_script( 'plsh-theme' );
+	wp_deregister_script( 'plsh-theme' );
+	wp_enqueue_script(
+		'plsh-theme',
+		get_stylesheet_directory_uri() . '/theme/assets/js/theme.js',
+		array( 'jquery' ),
+		filemtime( get_stylesheet_directory() . '/theme/assets/js/theme.js' ),
+		true
+	);
+
+	// now dequeue the rest
+	wp_dequeue_style( 'plsh-sharrre' );
+	wp_dequeue_script( 'plsh-sharrre' );
+
+	// and relocalize it
+
+	$ajax_object = array();
+	$ajax_object['ajaxurl'] = admin_url( 'admin-ajax.php' );
+	$ajax_object['readmore'] = __('Read more', 'goliath');
+	$ajax_object['article'] = __('Article', 'goliath');
+	$ajax_object['show_post_quick_view'] = plsh_gs('show_post_quick_view');
+	$ajax_object['show_mosaic_overlay'] = plsh_gs('show_mosaic_overlay');
+	$ajax_object['enable_sidebar_affix'] = plsh_gs('enable_sidebar_affix');
+
+	if ( function_exists('icl_get_languages' ) ) {
+		$ajax_object['lang'] = ICL_LANGUAGE_CODE;
+	}
+
+	$ajax_object['particle_color'] = get_theme_mod('particle_color', plsh_gs('particle_color'));
+
+	wp_localize_script( 'plsh-theme', 'ajax_object', $ajax_object );
+}
