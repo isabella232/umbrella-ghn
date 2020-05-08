@@ -65,7 +65,7 @@
 						// @since 2020-05-04
 						echo '<a href="https://www.georgiahealthnews.com/donate/" target="_blank" class="header-text-button" style="background-color: #126cb2;" >Donate</a> ';
 
-						echo '<a href="https://investigativenewsnetwork.us1.list-manage.com/subscribe?u=81670c9d1b5fbeba1c29f2865&id=1476113985" target="_blank" class="header-text-button" style="background-color: #ca040d;">Subscribe</a> ';
+						echo '<a href="https://georgiahealthnews.us2.list-manage.com/subscribe/?u=ead49629f63d75d51a64b2404&id=5651eb0570" target="_blank" class="header-text-button" style="background-color: #ca040d;">Subscribe</a> ';
 
                         if(plsh_gs('social_facebook') != '')
                         {
