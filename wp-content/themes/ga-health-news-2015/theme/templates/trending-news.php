@@ -31,7 +31,7 @@
                     data-index="1"
                     data-cycle-slides="> li"
                     data-cycle-auto-height="calc"
-                    data-cycle-paused="false"                                 
+                    data-cycle-paused="false"
                     data-cycle-speed="500"
                     data-cycle-next="#ticker-next"
                     data-cycle-prev="#ticker-prev"
@@ -63,7 +63,7 @@
                     {
 						// https://github.com/INN/umbrella-ghn/issues/6
 						// @since 2020-05-04
-						echo '<a href="https://www.georgiahealthnews.com/donate/" target="_blank" class="header-text-button" style="background-color: #126cb2;" >Donate</a> ';
+						echo '<a href="https://www.georgiahealthnews.com/donate-general/" target="_blank" class="header-text-button" style="background-color: #126cb2;" >Donate</a> ';
 
 						echo '<a href="https://georgiahealthnews.us2.list-manage.com/subscribe/?u=ead49629f63d75d51a64b2404&id=5651eb0570" target="_blank" class="header-text-button" style="background-color: #ca040d;">Subscribe</a> ';
 
